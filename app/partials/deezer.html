@@ -1,0 +1,15 @@
+<div ng-controller="WidgetController">
+	<h3>DEEZER favorite Artists and titles Showing 50 of {{total}} in total</h3>
+	<ul>
+		<li ng-repeat="song in songs" ng-class-even='"even"' ng-class-odd='"odd"'>
+			<em>{{song.title}}:</em>
+			<span class="artist">{{song.artist.name}}</span>
+			<span class="album">from album {{song.album.title}}</span>
+		</li>
+	</ul>
+	<a ng-click='songs.nextPage()' href="{{nextPageUrl}}">next page</a>
+	<a href="#" ng-click="alertMe()" title="">Alert</a>
+</div>
+<div class="pagination" ng-controller="PaginationCtrl">
+	<p>Pagination goes here</p>
+</div>

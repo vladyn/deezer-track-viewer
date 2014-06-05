@@ -1,0 +1,9 @@
+<div ng-controller="WidgetController">
+	<h3>My Tweets</h3>
+	<ul>
+		<li ng-repeat="tweet in tweets" ng-class-even='"even"' ng-class-odd='"odd"'>
+			<em>@{{tweet.author}}:</em>
+			<span>{{tweet.text}}</span>
+		</li>
+	</ul>
+</div>
