@@ -10,18 +10,22 @@ angular.module('myApp.controllers', [])
 
   }])
 
+  .controller('HelloCtrl', ['$scope', function ($scope) {
+    $scope.helloMessage = "Hello World!";
+  }])
+
   .controller('WidgetController', ['$http', '$log', '$scope', function($http, $log, $scope){
 
-    var token  = 'frcE5cMznk538ee2ce928dcJEqOByIC538ee2ce92919RSsOif',
-        cName  = 'X-XSRF-TOKEN',
-        url    = 'http://api.deezer.com/user/17673156/personal_songs',
-        config = {
-            params: {
-                access_token: token,
-                callback: 'JSON_CALLBACK', 
-                output: 'jsonp'
-            }
-        };
+  var token  = 'frcE5cMznk538ee2ce928dcJEqOByIC538ee2ce92919RSsOif',
+      cName  = 'X-XSRF-TOKEN',
+      url    = 'http://api.deezer.com/user/17673156/personal_songs',
+      config = {
+          params: {
+              access_token: token,
+              callback: 'JSON_CALLBACK', 
+              output: 'jsonp'
+          }
+      };
     document.cookie = cName + '=' + token;
 
   	$http.jsonp(url, config)
