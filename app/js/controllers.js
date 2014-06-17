@@ -43,10 +43,4 @@ angular.module('myApp.controllers', [])
       };
   }])
 
-  .controller('PaginationCtrl', ['$scope', function ($scope) {
-    var limit = 50;
-    $scope.showNext = function() {
-      $location.path("/some");
-    };
-  }]);
 

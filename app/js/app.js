@@ -8,12 +8,12 @@ angular.module('myApp', [
     'myApp.services',
     'myApp.directives',
     'myApp.controllers'
-]).config(['$routeProvider', '$httpProvider', '$locationProvider', function($routeProvider, $httpProvider, $locationProvider) {
-    $routeProvider.when('app/deezer/', {templateUrl: 'partials/deezer.html', controller: 'WidgetController'});
-    $routeProvider.when('app/', {templateUrl: 'partials/deezer.html', controller: 'WidgetController'});
-    $routeProvider.when('app/hello-world', {templateUrl: 'index.html', controller: 'HelloCtrl'});
-    $routeProvider.otherwise({redirectTo: 'app/'});
-	$httpProvider.defaults.useXDomain = true;
-	delete $httpProvider.defaults.headers.common['X-Requested-With'];
-    $locationProvider.html5Mode(true);
+]).config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/deezer', {templateUrl: 'partials/deezer.html', controller: 'WidgetController'});
+    $routeProvider.when('/', {templateUrl: 'partials/deezer.html', controller: 'WidgetController'});
+    $routeProvider.when('/hello-world', {templateUrl: 'partials/hello-world.html', controller: 'HelloCtrl'});
+    $routeProvider.otherwise({redirectTo: '/'});
+    // $httpProvider.defaults.useXDomain = true;
+    // delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    // $locationProvider.html5Mode(true);
 }]);
