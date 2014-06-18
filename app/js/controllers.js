@@ -14,10 +14,9 @@ angular.module('myApp.controllers', [])
     $scope.helloMessage = "Hello World!";
   }])
 
-  .controller('WidgetController', ['$http', '$log', '$scope', function($http, $log, $scope){
-
+  .controller('WidgetController', ['$http', '$log', '$scope', 'deezerConnect', function($http, $log, $scope, deezerConnect){
+    // deezerConnect
   var token  = 'frcE5cMznk538ee2ce928dcJEqOByIC538ee2ce92919RSsOif',
-      cName  = 'X-XSRF-TOKEN',
       url    = 'http://api.deezer.com/user/17673156/personal_songs',
       config = {
           params: {
@@ -26,7 +25,6 @@ angular.module('myApp.controllers', [])
               output: 'jsonp'
           }
       };
-    document.cookie = cName + '=' + token;
 
   	$http.jsonp(url, config)
       .success(function(data) {
@@ -41,12 +39,6 @@ angular.module('myApp.controllers', [])
       $scope.alertMe = function(msg) {
         window.open("personal_songs.json");
       };
-  }])
-
-  .controller('PaginationCtrl', ['$scope', function ($scope) {
-    var limit = 50;
-    $scope.showNext = function() {
-      $location.path("/some");
-    };
   }]);
+
 
