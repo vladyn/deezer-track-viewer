@@ -4,10 +4,8 @@
 'use strict';
 angular.module('myApp.services', [])
 .value('version', '0.1')
-.provider('deezerConnect', [function (token, cookie, url, format) {
-
+.factory('deezerConnect', [function () {
 	var defaultToken  = 'frcE5cMznk538ee2ce928dcJEqOByIC538ee2ce92919RSsOif';
-	var cName  = 'X-XSRF-TOKEN';
 	var url    = 'http://api.deezer.com/user/17673156/personal_songs';
 	var config = {
         access_token: defaultToken,
@@ -15,10 +13,10 @@ angular.module('myApp.services', [])
         output: 'jsonp'
 	};
 
-	this.token = defaultToken;
-
-	this.$get = [function() {
-		return {
-		};
-	}];
+	return {
+        get: function(token, url, format) {
+            this.token = token || defaultToken;
+        },
+        post: function() {}
+    };
 }]);
