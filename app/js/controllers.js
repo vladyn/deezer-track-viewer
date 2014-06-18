@@ -14,8 +14,8 @@ angular.module('myApp.controllers', [])
     $scope.helloMessage = "Hello World!";
   }])
 
-  .controller('WidgetController', ['$http', '$log', '$scope', function($http, $log, $scope){
-
+  .controller('WidgetController', ['$http', '$log', '$scope', 'deezerConnect', function($http, $log, $scope, deezerConnect){
+    // deezerConnect
   var token  = 'frcE5cMznk538ee2ce928dcJEqOByIC538ee2ce92919RSsOif',
       cName  = 'X-XSRF-TOKEN',
       url    = 'http://api.deezer.com/user/17673156/personal_songs',
