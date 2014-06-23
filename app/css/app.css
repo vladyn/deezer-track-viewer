@@ -36,3 +36,7 @@
 .even {
   background: #efe;
 }
+
+.item-grid {
+  list-style: none;
+}

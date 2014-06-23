@@ -1,16 +1,32 @@
-<div ng-controller="WidgetController" class="col-11">
-	<h3>DEEZER favorite Artists and titles Showing 50 of {{total}} in total</h3>
-	<ul>
-		<li ng-repeat="song in songs" ng-class-even='"even"' ng-class-odd='"odd"'>
-			<em>{{song.title}}:</em>
-			<span class="artist">{{song.artist.name}}</span>
-			<span class="album">from album {{song.album.title}}</span>
-		</li>
-	</ul>
-	<a ng-click='songs.nextPage()' href="{{nextPageUrl}}">next page</a>
-	<a href="#" ng-click="alertMe()" title="">Alert</a>
+<div class="row">
+	<div class="small-12 medium-10 large-4 columns">
+		<select name="criteria" ng-change="" ng-model="search">
+			<option value="artist">Artists</option>
+			<option value="song">Song</option>
+			<option value="album">Album</option>
+			option
+		</select>
+		<label >Search for {{search}}</label>
+		<input type="search" name="search" value="" placeholder="Filter artist" ng-model="search">
+	</div>
 </div>
-<div class="pagination">
-	<p>Pagination goes here</p>
-	Pages 50 of {{total}}
+<div class="row">
+	<div ng-controller="WidgetController" class="small-12 medium-10 large-8 columns">
+		<h3>DEEZER favorite Artists and titles Showing 50 of {{total}} in total</h3>
+		<ul class="item-grid">
+			<li ng-repeat="song in songs | filter:search" ng-class-even='"even"' ng-class-odd='"odd"' ng-class='"small-3 medium-3 large-2 columns panel"'>
+				<em>{{song.title}}:</em>
+				<span class="artist">{{song.artist.name}}</span>
+				<span class="album">from album {{song.album.title}}</span>
+			</li>
+		</ul>
+		<a ng-click='songs.nextPage()' href="{{nextPageUrl}}">next page</a>
+		<a href="#" ng-click="alertMe()" title="">Alert</a>
+	</div>
+</div>
+<div class="row">
+	<div class="pagination small-12 medium-10 large-6 columns">
+		<p>Pagination goes here</p>
+		<em>Pages 50 of {{total}}</em>
+	</div>
 </div>

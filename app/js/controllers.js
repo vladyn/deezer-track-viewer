@@ -17,7 +17,7 @@ angular.module('myApp.controllers', [])
   .controller('WidgetController', ['$http', '$log', '$scope', 'deezerConnect', function($http, $log, $scope, deezerConnect){
     // deezerConnect
   var token  = 'frcE5cMznk538ee2ce928dcJEqOByIC538ee2ce92919RSsOif',
-      url    = 'http://api.deezer.com/user/17673156/personal_songs',
+      url    = 'http://api.deezer.com/user/17673156/tracks',
       config = {
           params: {
               access_token: token,
@@ -26,7 +26,7 @@ angular.module('myApp.controllers', [])
           }
       };
 
-  	$http.jsonp(url, config)
+  	deezerConnect.get(url, config)
       .success(function(data) {
         $scope.songs       = data.data;
         $scope.total       = data.total;
@@ -36,8 +36,7 @@ angular.module('myApp.controllers', [])
         $log.info("Something went wrong: " + data + status);
       });
 
-      $scope.alertMe = function(msg) {
-        window.open("personal_songs.json");
+      $scope.switchItems = function(item) {
       };
   }]);
 
