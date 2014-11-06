@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="small-12 medium-10 large-4 columns">
-		<select name="criteria" ng-change="" ng-model="search">
+		<select name="criteria" ng-change="" ng-model="sort">
 			<option value="artist">Artists</option>
 			<option value="song">Song</option>
 			<option value="album">Album</option>
@@ -11,10 +11,10 @@
 	</div>
 </div>
 <div class="row">
-	<div ng-controller="WidgetController" class="small-12 medium-10 large-8 columns">
+	<div ng-controller="WidgetController" class="small-12 medium-12 large-12 columns">
 		<h3>DEEZER favorite Artists and titles Showing 50 of {{total}} in total</h3>
 		<ul class="item-grid">
-			<li ng-repeat="song in songs | filter:search" ng-class-even='"even"' ng-class-odd='"odd"' ng-class='"small-3 medium-3 large-2 columns panel"'>
+			<li ng-repeat="song in songs | filter:search | filter: sort" ng-class-even='"even"' ng-class-odd='"odd"' class="small-3 medium-3 large-2 columns panel hover-over">
 				<em>{{song.title}}:</em>
 				<span class="artist">{{song.artist.name}}</span>
 				<span class="album">from album {{song.album.title}}</span>
